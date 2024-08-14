@@ -16,6 +16,10 @@ public class Carta {
     // César, sei o método toString para imprimir as cartas na array
     @Override
     public String toString() {
-        return nome + " de " + naipe;
+        if (nome.equals("coringa")) {
+            return nome;
+        } else {
+            return nome + " de " + naipe;
+        }
     }
 }

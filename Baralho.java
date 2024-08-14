@@ -1,13 +1,12 @@
 // Crie uma classe Baralho, que possui 56 cartas. No construtor de Baralho, inicialize as 56 cartas (juntamente com os 4 coringas, que devem se chamar “coringa” e o naipe é “coringa”).
 public class Baralho {
     private String[] naipes = {"ouros", "copas", "espadas", "paus"};
-    private String[] nomes = {"2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"};
+    private String[] nomes = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"}; // vamos usar "valete", "dama" e "reis" em vez de "J", "Q" e "K"?
     private Carta[] baralho = new Carta[56];
     
     // César, no enunciado, a inicialização das cartas deve ser feita no contrutor. Usei o exemplo de arrays com os índices de nomes e naipes. 
     public Baralho() {
         int index = 0;
-
         for (String naipeCarta : naipes) {
             for (String nomeCarta : nomes) {
                 baralho[index++] = new Carta(nomeCarta, naipeCarta);
@@ -45,17 +44,30 @@ public class Baralho {
         return carta;
     }
 
-    // O método verifica se tem determinada carta no baralho, devolvendo true ou false.
-    public boolean hasCarta(String nome, String naipe) {
-        for (Carta carta : baralho) {
-            if (carta nome == nome && carta naipe == naipe) {
-                return true;
-            } else {return false;}
-        }
-    }
+     // O método verifica se tem determinada carta no baralho, devolvendo true ou false.
+     public boolean hasCarta(String nome, String naipe) {
+        boolean a = false;
+         for (Carta carta : baralho) {
+             if (carta.getNome().equals(nome) && carta.getNaipe().equals(naipe)) {
+                 a = true;
+             }
+             else {a = false;}
+         }
+         return a;
+     }
 
     // Esse método imprime as cartas para verificar como estão dispostas (se estão embaralhadas por exemplo).
     public void imprimirBaralho() {
-        // System.out.println();
+        for (int index = 0; index < baralho.length; index++) {
+            // Carta carta = baralho[index];
+            System.out.println(baralho[index]);
+        }
+    }
+
+    public static void main(String[] args) {
+        Baralho baralho = new Baralho();
+        baralho.imprimirBaralho();
+        baralho.hasCarta("A", "paus");
+        baralho.hasCarta("naira", "teste");
     }
 }
