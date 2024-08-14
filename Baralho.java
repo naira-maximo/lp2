@@ -45,15 +45,14 @@ public class Baralho {
     }
 
      // O método verifica se tem determinada carta no baralho, devolvendo true ou false.
-     public boolean hasCarta(String nome, String naipe) {
+     public void hasCarta(String nome, String naipe) {
         boolean a = false;
          for (Carta carta : baralho) {
              if (carta.getNome().equals(nome) && carta.getNaipe().equals(naipe)) {
                  a = true;
              }
-             else {a = false;}
          }
-         return a;
+         System.out.println("Retorno:" + a);
      }
 
     // Esse método imprime as cartas para verificar como estão dispostas (se estão embaralhadas por exemplo).
