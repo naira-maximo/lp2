@@ -32,12 +32,10 @@ public class Baralho {
 
     // O método usa o math.random para trocar as cartas dentro do baralho, misturando-as (sorteie duas posições e troque-as. Repita este processo diversas vezes).
     public void embaralhar() {
-        for (int i = 0; i < baralho.length; i++) {
-            // Sorteia duas posições dentro do intervalo das cartas restantes
-            int posicao1 = (int) (Math.random() * (indexAtual + 1));
-            int posicao2 = (int) (Math.random() * (indexAtual + 1));
+        for (int i = 0; i < indexAtual; i++) {
+            int posicao1 = (int) (Math.random() * (indexAtual));
+            int posicao2 = (int) (Math.random() * (indexAtual));
     
-            // Troca as cartas nas posições sorteadas
             Carta novaPosicao = baralho[posicao1];
             baralho[posicao1] = baralho[posicao2];
             baralho[posicao2] = novaPosicao;
