@@ -1,10 +1,9 @@
 // Crie uma classe Baralho, que possui 56 cartas. No construtor de Baralho, inicialize as 56 cartas (juntamente com os 4 coringas, que devem se chamar “coringa” e o naipe é “coringa”).
 public class Baralho {
     private String[] naipes = {"ouros", "copas", "espadas", "paus"};
-    private String[] nomes = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"}; // vamos usar "valete", "dama" e "reis" em vez de "J", "Q" e "K"?
+    private String[] nomes = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"}; 
     private Carta[] baralho = new Carta[56];
 
-    // César, no enunciado, a inicialização das cartas deve ser feita no contrutor. Usei o exemplo de arrays com os índices de nomes e naipes. 
     public Baralho() {
         int index = 0;
         for (String naipeCarta : naipes) {
@@ -12,13 +11,11 @@ public class Baralho {
                 baralho[index++] = new Carta(nomeCarta, naipeCarta);
             }
         }
-        // César, deixei a criação dos coringas separado e o nome e naipe fora das arrays. O que acha?
         for (int i = 0; i < 4; i++) {
             baralho[index++] = new Carta("coringa", "coringa");
         }
     }
 
-    // César, deixei comentado o nosso método de construção de cartas.
     // public Carta[] criarCarta() {
     //     int index = 0;
     //     for (String naipeCarta : naipes) {
@@ -62,17 +59,17 @@ public class Baralho {
     }
 
      // O método verifica se tem determinada carta no baralho, devolvendo true ou false.
-     public void hasCarta(String nome, String naipe) {
+     public boolean hasCarta(String nome, String naipe) {
         boolean a = false;
          for (Carta carta : baralho) {
              if (carta.getNome().equals(nome) && carta.getNaipe().equals(naipe)) {
                  a = true;
              }
          }
-         System.out.println("Retorno:" + a);
+         return a;
      }
 
-    // Esse método imprime as cartas para verificar como estão dispostas (se estão embaralhadas por exemplo).
+    // O método imprime as cartas para verificar como estão dispostas (se estão embaralhadas por exemplo).
     public void imprimirBaralho() {
         for (int index = 0; index < baralho.length; index++) {
             // Carta carta = baralho[index];
@@ -83,9 +80,9 @@ public class Baralho {
     public static void main(String[] args) {
         Baralho baralho = new Baralho();
         // baralho.imprimirBaralho();
-        // baralho.hasCarta("A", "paus");
-        // baralho.hasCarta("naira", "teste");
-        baralho.embaralhar();
+        System.out.println(baralho.hasCarta("A", "paus"));
+        System.out.println(baralho.hasCarta("naira", "teste"));
+        // baralho.embaralhar();
         // System.out.println(baralho.distribuirCarta());
     }
 }

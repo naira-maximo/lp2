@@ -13,7 +13,6 @@ public class Carta {
     public String getNaipe() {return naipe;}
     public void setNaipe(String naipe) {this.naipe = naipe;}
 
-    // César, sei o método toString para imprimir as cartas na array
     @Override
     public String toString() {
         if (nome.equals("coringa")) {
