@@ -1,3 +1,4 @@
+package Baralho;
 // Crie uma classe Baralho, que possui 56 cartas. No construtor de Baralho, inicialize as 56 cartas (juntamente com os 4 coringas, que devem se chamar “coringa” e o naipe é “coringa”).
 public class Baralho {
     private String[] naipes = {"ouros", "copas", "espadas", "paus"};

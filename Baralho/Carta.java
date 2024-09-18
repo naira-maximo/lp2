@@ -1,3 +1,4 @@
+package Baralho;
 // Crie a classe Carta, que possui um nome e um naipe. Crie os métodos GET e SET para os atributos
 public class Carta {
     private String nome;
