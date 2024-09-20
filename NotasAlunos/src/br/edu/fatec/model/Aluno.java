@@ -1,4 +1,4 @@
-package br.edu.fatec.secretaria;
+package br.edu.fatec.model;
 
 public class Aluno {
     private String matricula;
@@ -40,7 +40,7 @@ public class Aluno {
         
         for (Prova prova : provas) {
             if (prova != null) {
-                sb.append(prova.toString()).append(", ");
+                sb.append(prova.toString()).append("; ");
             }
         }
 

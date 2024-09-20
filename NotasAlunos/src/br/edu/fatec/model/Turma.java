@@ -1,4 +1,4 @@
-package br.edu.fatec.secretaria;
+package br.edu.fatec.model;
 
 public class Turma {
     private String nome;
