@@ -1,0 +1,21 @@
+# Eclipse specific files
+.project
+.classpath
+.settings/
+
+# IntelliJ IDEA specific files
+.idea/
+*.iml
+*.iws
+
+# VS Code specific files
+.vscode/
+
+# Other files and directories
+out/
+
+bin/
+
+lib/
+
+.metadata/
