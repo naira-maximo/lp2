@@ -1,21 +1,38 @@
 package br.edu.fatec.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Turma {
     private String nome;
-    private Aluno[] alunos;
+    private List<Aluno> alunos;
+    private int qttdeAlunos; // Adiciona o campo qttdeAlunos
 
     public Turma(String nome, int qttdeAlunos) {
         this.nome = nome;
-        this.alunos = new Aluno[qttdeAlunos];
+        this.qttdeAlunos = qttdeAlunos; // Inicializa o campo qttdeAlunos
+        this.alunos = new ArrayList<>(); // Inicializa a lista de alunos sem tamanho fixo
     }
 
-    public String getNome() {return nome;}
+    public String getNome() {
+        return nome;
+    }
 
-    public void setNome(String nome) {this.nome = nome;}
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-    public Aluno[] getAlunos() {return alunos;}
+    public List<Aluno> getAlunos() {
+        return alunos;
+    }
 
-    public void setAlunos(Aluno[] alunos) {this.alunos = alunos;}
+    public void setAlunos(List<Aluno> alunos) {
+        this.alunos = alunos;
+    }
+
+    public int getQttdeAlunos() {
+        return qttdeAlunos; // Método getter para acessar qttdeAlunos
+    }
 
     @Override
     public String toString() {

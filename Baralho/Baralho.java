@@ -1,77 +1,78 @@
 package Baralho;
-// Crie uma classe Baralho, que possui 56 cartas. No construtor de Baralho, inicialize as 56 cartas (juntamente com os 4 coringas, que devem se chamar “coringa” e o naipe é “coringa”).
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Collections;
+
 public class Baralho {
-    private String[] naipes = {"ouros", "copas", "espadas", "paus"};
-    private String[] nomes = {"A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"}; 
-    private Carta[] baralho = new Carta[56];
-    private int indexAtual = baralho.length - 1;
+    private List<String> naipes = new ArrayList<>();
+    private List<String> nomes = new ArrayList<>();
+    private List<Carta> baralho = new ArrayList<>();
+    private int indexAtual;
 
     public Baralho() {
-        int index = 0;
+        naipes.add("ouros");
+        naipes.add("copas");
+        naipes.add("espadas");
+        naipes.add("paus");
+
+        nomes.add("A");
+        nomes.add("2");
+        nomes.add("3");
+        nomes.add("4");
+        nomes.add("5");
+        nomes.add("6");
+        nomes.add("7");
+        nomes.add("8");
+        nomes.add("9");
+        nomes.add("10");
+        nomes.add("J");
+        nomes.add("Q");
+        nomes.add("K");
+
         for (String naipeCarta : naipes) {
             for (String nomeCarta : nomes) {
-                baralho[index++] = new Carta(nomeCarta, naipeCarta);
+                baralho.add(new Carta(nomeCarta, naipeCarta));
             }
         }
         for (int i = 0; i < 4; i++) {
-            baralho[index++] = new Carta("coringa", "coringa");
+            baralho.add(new Carta("coringa", "coringa"));
         }
+        indexAtual = baralho.size() - 1;
     }
 
-    // public Carta[] criarCarta() {
-    //     int index = 0;
-    //     for (String naipeCarta : naipes) {
-    //         for (String nomeCarta : nomes) {
-    //             baralho[index++] = new Carta(nomeCarta, naipeCarta);
-    //         }
-    //     }
-    //     for (int i = 0; i < 4; i++) {
-    //         baralho[index++] = new Carta("coringa", "coringa");
-    //     }
-    //     return baralho;
-    // }
-
-    // O método usa o math.random para trocar as cartas dentro do baralho, misturando-as (sorteie duas posições e troque-as. Repita este processo diversas vezes).
     public void embaralhar() {
-        for (int i = 0; i < indexAtual; i++) {
-            int posicao1 = (int) (Math.random() * (indexAtual));
-            int posicao2 = (int) (Math.random() * (indexAtual));
-    
-            Carta novaPosicao = baralho[posicao1];
-            baralho[posicao1] = baralho[posicao2];
-            baralho[posicao2] = novaPosicao;
-        }
+        Collections.shuffle(baralho);
     }
 
-    // O método devolve uma carta, retirada do topo do baralho se não estiver vazio, ou null.
     public Carta distribuirCarta() {
         if (indexAtual >= 0) {
-            return baralho[indexAtual--];
-        } else {return null;}
+            return baralho.get(indexAtual--);
+        } else {
+            return null;
+        }
     }
 
-    // O método verifica se tem carta no baralho, devolvendo true ou false.
     public boolean hasCarta() {
         return indexAtual >= 0;
     }
+
     public int cartasRestantes() {
         return indexAtual + 1;
     }
 
     public boolean temCarta(String nome, String naipe) {
-        boolean a = false;
         for (int i = 0; i <= indexAtual; i++) {
-            if (baralho[i].getNome().equals(nome) && baralho[i].getNaipe().equals(naipe)) {
-                a = true;
+            if (baralho.get(i).getNome().equals(nome) && baralho.get(i).getNaipe().equals(naipe)) {
+                return true;
             }
         }
-        return a;
+        return false;
     }
 
-    // O método imprime as cartas para verificar como estão dispostas (se estão embaralhadas por exemplo).
     public void imprimirBaralho() {
         for (int i = 0; i <= indexAtual; i++) {
-            System.out.println(baralho[i]);
+            System.out.println(baralho.get(i));
         }
     }
 
@@ -94,6 +95,5 @@ public class Baralho {
         baralho.embaralhar();
         baralho.imprimirBaralho();
         System.out.println(baralho.cartasRestantes());
-
     }
 }
